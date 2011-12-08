@@ -1,0 +1,2 @@
+-module(message, [Id, Text]).
+-compile(export_all).
