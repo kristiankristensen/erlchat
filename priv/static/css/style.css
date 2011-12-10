@@ -1,0 +1,188 @@
+body { 
+    background:#fff; 
+    color:#000; 
+    font-size:.9em;
+    padding: 0;
+    margin: 0;
+}
+h1 {
+ padding: 0 0 0 .425em;
+ margin: 0;
+ font-size: 16pt;
+ display: inline;
+ float: left;
+}
+#header { 
+    position: fixed;
+    top: 0;
+    font-family: 'Josefin Slab', arial, serif;
+    font-size: 16pt;
+    background: #333; 
+    color: #fff; 
+    padding: 4px;
+    height: 24px;
+    width: 100%;
+    min-width: 600px;
+}
+h1 .subtitle {
+ font-size: .5em;
+ color: #fefefe;
+ padding-left: 1em;
+}
+
+.strikethat {
+    text-decoration: line-through;
+}
+
+#content {
+    margin-top: 48px;
+}
+#intro {
+    width: 20em;
+    line-height: 1.5em;
+    margin: 4em 1em 1em 1em;
+}
+#login-form {
+    font-size: 14pt;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+#send-form {
+    font-size: 14pt;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#footer {
+    font-size: 14pt;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid black;
+    background: #fff;
+    z-index: 99;
+}
+#intro {
+    color: #333;
+    margin: 4em 1em 1em 1em;
+    line-height: 1.5em;
+    text-align: justify;
+    width: 30em;
+}
+#whoareyou, #nickname, #login
+{
+    color: #000000;
+    margin: .5em;
+    padding: .5em;
+}
+
+#whoareyou {
+    width: 20em;
+    display: block;
+    font-weight: bold;
+}
+
+#nickname {
+    width: 20em;
+    display: block;
+    margin-left: 2em;
+}
+
+#login-button {
+    width: 5em;
+    margin-left: 17em;
+    display: block;
+}
+
+#logout-button {
+  float: right;
+  margin-right: 20px;
+}
+#logout-button:link {
+  text-decoration: none;
+  color: #888888;
+}
+#logout-button:hover {
+  text-decoration: underline;
+}
+#logout-button:visited {
+  color: #888888;
+}
+
+#current-username, #message, #send-button {
+    padding: .5%;
+}
+
+#current-username {
+    width: 10%;
+    display: block;
+    float: left;
+    text-align: right;
+}
+#message {
+    width: 78%;
+    resize: none;
+    height: 4em;
+}
+#send-button {
+    width: 8%;
+}
+
+.errors{
+    margin: 1em;
+    line-height: 1.5em;
+    color: #F00;
+    background-color: #FAA;
+    padding: .25em 1em;
+    border: 2px solid #F00;
+    display: block;
+}
+
+#input_box { background: border: 1px #ccc solid; padding: 10px; width: 100%;}
+
+/*------------------------------------------------------------------------------
+ * message formatting
+ *----------------------------------------------------------------------------*/
+
+#message-container {
+    margin: 0;
+    padding: 0 0 6em 0;
+    overflow: hidden;
+}
+
+#message-container li {
+  clear: both;
+  list-style: none;
+}
+#message-container li.system {
+  color: #666666;
+}
+#message-container li.user {
+  color: #333333;
+}
+#message-container li.error {
+  color: #FF0000;
+}
+
+#message-container span {
+  padding: 2px .5%;
+  display: block;
+  float: left;
+}
+#message-container .message-username {
+  font-weight: bold;
+  width: 10%;
+  text-align: right
+}
+#message-container .message-body {
+    width: 77%;
+}
+#message-container .message-timestamp {
+  width: 8%;
+  color: #c7c7c7;
+  text-align: center;
+}

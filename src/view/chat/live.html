@@ -1,25 +1,66 @@
-<html><head>
-<title>Chatting {{channel}}</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<script>
-  function listen_for_events(timestamp) {
-  $.ajax("/chat/receive_chat/{{channel}}/"+timestamp, { success:
-  function(data, code, xhr) {
-    for (var i=0; i<data.messages.length; i++) {
-      var msg = data.messages[i].text;
-      $("#chat_list").prepend("<li>"+msg);
-    }
-    listen_for_events(data.timestamp);
-    } });
-  }
-  $(document).ready(function() {
-    listen_for_events({{ timestamp }});
-  });
-</script>
-</head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ErlChat</title>
+    <link rel=stylesheet href="/static/css/style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/js/chat.js"></script>
+    <script src="/static/js/mustache.js"></script>
+    <script>
+      $(document).ready(function() {
+        Chat.buildChatWindow({
+          chatElements: "#chat-container, #logout-button",
+          messageContainer: "#message-container",
+          loginButton: "#login-button",
+          logoutButton: "#logout-button",
+          loginElements: "#login-container",
+          loginErrors: "#login-errors",
+          usernameField: "#nickname",
+          usernameDisplay: "#current-username",
+          sendMessageButton: "#send-button",
+          composeMessageField: "#message",
+          chatErrors: "#chat-errors"
+        });
+
+        $("#nickname").focus();
+      });
+    </script>
+  </head>
   <body>
-    <h1>Welcome to <em>{{channel}}</em></h1>
-  <ul id="chat_list">
-    <li>You joined the chat</li>
-</ul>
-</body
+    <div id="header">
+      <h1><span class="strikethat">Chatify</span>ErlChat<span class="subtitle">a
+      <span class="strikethat">Brubeck</span>Chicago Boss demo</span></h1>
+      <a id="logout-button" href="#" style="display: none;">log out</a>
+    </div>
+    <div id="content">
+      <div id="login-container">
+        <p id="intro">
+        Chatify is a simple chat server built using the <a href="http://brubeck.io">Brubeck</a> messaging framework.
+        Leveraging the power of Python and Gevent make building a scalable chat server simple and fun.
+        Check out the source code <a href="http://github.com/jordanorelli/chatify">here</a>.
+        </p>
+        <label id="whoareyou" for="nickname">Who are you?</label>
+        <input id="nickname" type="text"></input>
+        <input id="login-button" type="submit" name="join" value="join"
+            disabled="disabled" />
+        <span id="login-errors" class="errors" style="display: none;"></span>
+
+      </div>
+      <div id="chat-container" style="display: none;">
+        <ul id="message-container">
+        </ul>
+        <div id="footer">
+          <div id="input-container">
+            <div id="send-form">
+              <label id="current-username" for="message">anonymous:</label>
+              <textarea id="message"></textarea>
+              <input id="send-button" type="submit" name="send" value="send"
+                  disabled="disabled" />                
+              <span id="chat-errors" class="errors" style="display: none;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

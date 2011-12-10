@@ -5,13 +5,15 @@ index('GET', []) ->
     {ok, []}.    
 
 send_test_message('GET', []) ->
-    TestMessage = message:new(id, "This is a test message from the browser"),
-    boss_mq:push("test-channel", TestMessage),
+    TestMessage = message:new(id, "This is a test message from the browser", "Username", erlang:localtime()),
+    boss_mq:push("public", TestMessage),
     boss_mq:push("test-channel", TestMessage),
     {output, "Message sent"}.
 
 send_message('POST', [Channel]) ->
-    boss_mq:push(Channel, Req:post_param("msg")).
+    NewMessage = message:new(id, list_to_binary(Req:post_param("message")), Req:post_param("nickname"), erlang:localtime()),
+    boss_mq:push(Channel, NewMessage),
+    {output, "ok"}.
 
 receive_chat('GET', [Channel, LastTimestamp]) ->
     {ok, Timestamp, Messages} = boss_mq:pull(Channel, list_to_integer(LastTimestamp)),
