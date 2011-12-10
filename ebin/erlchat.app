@@ -1,5 +1,5 @@
 {application,erlchat,
-             [{description,"My Awesome Web Framework"},
+             [{description,"Erlchat"},
               {vsn,"0.0.1"},
               {modules,[erlchat_outgoing_mail_controller,
                         erlchat_incoming_mail_controller,
