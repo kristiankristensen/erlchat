@@ -32,6 +32,8 @@ h1 .subtitle {
 
 .strikethat {
     text-decoration: line-through;
+    font-style:italic;
+    color: grey;
 }
 
 #content {
