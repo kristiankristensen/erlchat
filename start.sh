@@ -7,6 +7,6 @@ cd `dirname $0`
 
 # If your server is running in an untrusted environment, you should probably
 # change the cookie too. (All nodes in a cluster must have the same cookie.)
-exec erl +K true -pa $PWD/ebin -pa /home/kristian/dev/ChicagoBoss/ebin -pa /home/kristian/dev/ChicagoBoss/deps/*/ebin \
+exec erl +K true -pa $PWD/ebin -pa ../ChicagoBoss/ebin -pa ../dev/ChicagoBoss/deps/*/ebin \
     -boot start_sasl -config boss -s boss -setcookie abc123 -detached \
-    -sname john 
+    -sname john
