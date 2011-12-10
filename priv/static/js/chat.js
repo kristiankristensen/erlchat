@@ -161,7 +161,6 @@ var Chat = (function($) {
     $composeMessageField.attr("disabled", "disabled");
 
     data = 'nickname=' + username + '&message=' + message;
-      console.log("Message being sent: " + message);
     $.post('/chat/send_message/public', data)
       .success( function(){
         $composeMessageField.val("");
