@@ -7,7 +7,7 @@
 %     {404, {"Controller", "Action", [{id, "42"}]}}.
 
 % Front page
-% {"/", {"hello", "world"}}.
+{"/", {"chat", "live", [{channel, "public"}]}}.
 
 % 404 File Not Found handler
 % {404, {"hello", "goodbye"}}.
